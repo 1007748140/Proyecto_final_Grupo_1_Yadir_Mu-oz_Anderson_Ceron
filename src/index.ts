@@ -2,14 +2,14 @@
 import dotenv from 'dotenv';
 import app from './app';
 import sequelize from './config/database';
-import User from './models/userModel';
-import Role from './models/roleModel';
-import UserRole from './models/userRoleModel';
-import People from './models/peopleModel';
-import Invoice from './models/invoiceModel';
-import Payment from './models/paymentModel';
-import InvoiceDetail from './models/invoiceDetailModel';
-import Product from './models/productModel';
+import User from './models/user/userModel';
+import Role from './models/role/roleModel';
+import UserRole from './models/role/userRoleModel';
+import People from './models/people/peopleModel';
+import Invoice from './models/invoice/invoiceModel';
+import Payment from './models/payment/paymentModel';
+import InvoiceDetail from './models/invoice/invoiceDetailModel';
+import Product from './models/product/productModel';
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ async function initializeDatabase() {
     await sequelize.authenticate();
     console.log('Conexión a la base de datos establecida.');
 
-    // Crear tablas en orden correcto
+    // Crea tablas en orden
     await User.sync();
     await Role.sync();
     await UserRole.sync();

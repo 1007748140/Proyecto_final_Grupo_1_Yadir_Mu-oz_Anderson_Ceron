@@ -6,13 +6,12 @@ import morgan from 'morgan';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
 import errorHandler from './middlewares/errorHandler';
-import userRoutes from './routes/userRoutes';
-import roleRoutes from './routes/roleRoutes';
-import userRoleRoutes from './routes/userRoleRoutes';
-
-import invoiceRoutes from './routes/invoiceRoutes';
-import paymentRoutes from './routes/paymentRoutes';
-import invoiceDetailRoutes from './routes/invoiceDetailRoutes';
+import userRoutes from './routes/user/userRoutes';
+import roleRoutes from './routes/role/roleRoutes';
+import userRoleRoutes from './routes/role/userRoleRoutes';
+import invoiceRoutes from './routes/invoice/invoiceRoutes';
+import paymentRoutes from './routes/payment/paymentRoutes';
+import invoiceDetailRoutes from './routes/invoice/invoiceDetailRoutes';
 
 const app: Application = express();
 
@@ -26,7 +25,7 @@ app.use(morgan('dev'));
 
 // swagger
 const swaggerDocument = YAML.load('./docs/swagger.yaml');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); // Middleware para servir la documentación
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Rutas
 app.use(userRoutes);
