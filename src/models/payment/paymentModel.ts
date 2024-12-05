@@ -15,7 +15,7 @@ class Payment extends Model {
 
   public status!: string;
 
-  public total?: number; 
+  public total?: number;
 }
 
 Payment.init({
