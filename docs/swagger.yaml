@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: API RESTfull 
+  title: PROYECTO APIRESTFULL TIENDA VIRTUAL DESARROLLO GRUPO_1
   description: API RESTful para gestión de usuarios, roles, facturas y pagos
   version: 1.0.0
 
