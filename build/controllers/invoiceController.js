@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvoiceController = void 0;
 const invoiceModel_1 = __importDefault(require("../models/invoiceModel"));
+const paymentModel_1 = __importDefault(require("../models/paymentModel"));
+const invoiceDetailModel_1 = __importDefault(require("../models/invoiceDetailModel"));
 class InvoiceController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -26,9 +28,10 @@ class InvoiceController {
             }
         });
     }
-    getAll(_req, res) {
+    getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log(req);
                 const invoices = yield invoiceModel_1.default.findAll();
                 res.status(200).json(invoices);
             }
@@ -76,6 +79,8 @@ class InvoiceController {
                     res.status(404).json({ error: 'Factura no encontrada' });
                     return;
                 }
+                yield paymentModel_1.default.destroy({ where: { idInvoice: req.params.id } });
+                yield invoiceDetailModel_1.default.destroy({ where: { idInvoice: req.params.id } });
                 yield invoice.destroy();
                 res.status(204).send();
             }
