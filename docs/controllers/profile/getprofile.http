@@ -1,0 +1,5 @@
+# docs/controllers/profile/getprofile.http
+@env = dev
+
+GET http://localhost:3001/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMTU1OTYzLCJleHAiOjE3MzMxNTk1NjN9.Lox5husXrIygLsTFtRb2_YhtW658WQ_d-cH2cmeh0Es

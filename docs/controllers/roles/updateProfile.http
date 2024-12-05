@@ -1,0 +1,13 @@
+### docs/controllers/roles/updateProfile.http
+PUT  http://localhost:3001/api/users/profile/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMTU2MjI5LCJleHAiOjE3MzMxNTk4Mjl9.U7VHD0la_bJnB0d4m3gwek2GMMTZzNs5d5WSTyMKV98
+Content-Type: application/json
+
+{
+    "firstName":"Prueba de actualizacion",
+    "middleName":"Prueba de actualizacion",
+    "lastName":"Prueba de actualizacion",
+    "phone":"1234567890asd",
+    "email":"estonoesemail.com",
+    "password":"12345"
+}

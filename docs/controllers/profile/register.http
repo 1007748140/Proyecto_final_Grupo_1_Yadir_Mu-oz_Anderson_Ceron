@@ -1,0 +1,13 @@
+### docs/controllers/profile/register.http
+POST http://localhost:3001/api/users/register
+Content-Type: application/json
+
+{
+    "firstName": "Pepito",
+    "middleName": "Daniel",
+    "lastName": "Ceron",
+    "phone": "3123456789",
+    "email": "pepitodaniel@itp.edu.com",
+    "password": "Pepito123",
+    "idAddress": 1
+}

@@ -1,0 +1,44 @@
+### docs/controllers/invoicePersonalizadoTaller/invoiceSpecialEndpoints.http
+
+@baseUrl = http://localhost:3001
+@authToken = AQUI_EL_TOKEN
+
+### 1. Obtener total de pagos de un usuario
+GET {{baseUrl}}/api/users/1/payments/total
+Authorization: Bearer {{authToken}}
+
+### 2. Obtener usuario con facturas y pagos
+GET {{baseUrl}}/api/users/1/invoices-payments
+Authorization: Bearer {{authToken}}
+
+### 3. Obtener estado de pagos por factura
+GET {{baseUrl}}/api/invoices/1/payments-status
+Authorization: Bearer {{authToken}}
+
+### 4. Obtener productos y total de factura
+GET {{baseUrl}}/api/invoices/1/products
+Authorization: Bearer {{authToken}}
+
+### 5. Obtener pagos pendientes de factura
+GET {{baseUrl}}/api/invoices/1/pending-payments
+Authorization: Bearer {{authToken}}
+
+### 6. Actualizar estado de pago a exitoso
+PUT {{baseUrl}}/api/payments/1/success
+Authorization: Bearer {{authToken}}
+
+### 7. Obtener total con descuento
+GET {{baseUrl}}/api/invoices/1/total-with-discount?discount=10
+Authorization: Bearer {{authToken}}
+
+### 8. Obtener facturas de usuario con pagos
+GET {{baseUrl}}/api/users/1/invoices-with-payments
+Authorization: Bearer {{authToken}}
+
+### 9. Verificar si factura está pagada
+GET {{baseUrl}}/api/invoices/1/is-paid
+Authorization: Bearer {{authToken}}
+
+### 10. Obtener total con impuestos
+GET {{baseUrl}}/api/invoices/1/total-with-taxes?taxRate=16
+Authorization: Bearer {{authToken}}

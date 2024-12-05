@@ -1,0 +1,1 @@
+{"version":3,"file":"createPeople.js","sourceRoot":"","sources":["../../src/infra/createPeople.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;AACA,wEAA2C;AAE3C,MAAa,eAAe;IACpB,eAAe,CAAC,IAOrB;;YACC,OAAO,CAAC,GAAG,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;YAC1B,MAAM,IAAI,GAAG,MAAM,qBAAM,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC;YACvC,OAAO,IAAI,CAAC;QACd,CAAC;KAAA;CACF;AAbD,0CAaC"}

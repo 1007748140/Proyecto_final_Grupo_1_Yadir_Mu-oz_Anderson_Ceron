@@ -1,0 +1,36 @@
+// docs/controllers/roles/roles.http
+@baseUrl = http://localhost:3001
+
+### Crear un nuevo rol
+POST {{baseUrl}}/api/roles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMjQ0OTA0LCJleHAiOjE3MzMyNDg1MDR9.bmQAIrc8NLonltIKOoWtK-aIp8hwxx5H5v4HzO9UCvg
+
+{
+    "roleName": "USUARIO"
+}
+
+### Obtener todos los roles
+GET {{baseUrl}}/api/roles
+
+### Obtener rol por ID
+GET {{baseUrl}}/api/roles/1
+
+### Obtener rol por nombre
+GET {{baseUrl}}/api/roles/name/ADMIN
+
+### Obtener cantidad total de roles
+GET {{baseUrl}}/api/roles/count
+
+### Actualizar un rol
+PUT {{baseUrl}}/api/roles/1
+Content-Type: application/json
+Authorization: Bearer tu_token_aqui
+
+{
+    "roleName": "SUPER_ADMIN"
+}
+
+### Eliminar un rol
+DELETE {{baseUrl}}/api/roles/1
+Authorization: Bearer tu_token_aqui

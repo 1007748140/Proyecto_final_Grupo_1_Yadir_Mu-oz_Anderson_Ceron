@@ -1,0 +1,35 @@
+### docs/controllers/invoices/invoices.http
+
+@baseUrl = http://localhost:3001
+@authToken = TOKEN_AQUI
+
+### Crear nueva factura
+POST {{baseUrl}}/api/invoices
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "idUser": 1,
+    "total": 1500.00
+}
+
+### Obtener todas las facturas
+GET {{baseUrl}}/api/invoices
+Authorization: Bearer {{authToken}}
+
+### Obtener factura por ID
+GET {{baseUrl}}/api/invoices/1
+Authorization: Bearer {{authToken}}
+
+### Actualizar factura
+PUT {{baseUrl}}/api/invoices/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "total": 2000.00
+}
+
+### Eliminar factura
+DELETE {{baseUrl}}/api/invoices/1
+Authorization: Bearer {{authToken}}

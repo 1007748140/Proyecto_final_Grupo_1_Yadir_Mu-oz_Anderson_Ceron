@@ -1,0 +1,8 @@
+# docs/controllers/profile/login.http
+POST  http://localhost:3001/api/users/login
+Content-Type: application/json
+
+{
+    "email": "pepitodaniel@itp.edu.com",
+    "password": "Pepito123"
+}

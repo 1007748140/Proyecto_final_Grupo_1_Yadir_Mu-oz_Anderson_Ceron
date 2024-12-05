@@ -1,0 +1,1 @@
+{"version":3,"file":"deletePeopleSql.js","sourceRoot":"","sources":["../../src/infra/deletePeopleSql.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;AAEA,wEAA2C;AAE3C,MAAa,eAAe;IACpB,eAAe,CAAC,MAAc;;YAClC,MAAM,IAAI,GAAG,MAAM,qBAAM,CAAC,OAAO,CAAC,EAAE,KAAK,EAAE,EAAE,MAAM,EAAE,MAAM,EAAE,EAAE,CAAC,CAAC;YACjE,OAAO,IAAI,CAAC;QACd,CAAC;KAAA;CACF;AALD,0CAKC"}

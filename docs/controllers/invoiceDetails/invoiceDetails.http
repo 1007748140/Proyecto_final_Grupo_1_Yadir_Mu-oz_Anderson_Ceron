@@ -1,0 +1,37 @@
+### docs/controllers/invoiceDetails/invoiceDetails.http
+
+@baseUrl = http://localhost:3001
+@authToken = AQUI_EL_TOKEN
+
+### Crear nuevo detalle de factura
+POST {{baseUrl}}/api/invoice-details
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "id": 1,
+    "idInvoice": 1,
+    "idProduct": 1,
+    "quantity": 5
+}
+
+### Obtener todos los detalles
+GET {{baseUrl}}/api/invoice-details
+Authorization: Bearer {{authToken}}
+
+### Obtener detalle por ID
+GET {{baseUrl}}/api/invoice-details/1
+Authorization: Bearer {{authToken}}
+
+### Actualizar detalle
+PUT {{baseUrl}}/api/invoice-details/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "quantity": 10
+}
+
+### Eliminar detalle
+DELETE {{baseUrl}}/api/invoice-details/1
+Authorization: Bearer {{authToken}}

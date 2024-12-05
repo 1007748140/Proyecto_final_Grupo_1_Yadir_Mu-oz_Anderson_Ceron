@@ -1,0 +1,21 @@
+## docs/controllers/roles/userRoles.http
+
+@baseUrl = http://localhost:3001
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMTY1NTU4LCJleHAiOjE3MzMxNjkxNTh9.pqKLolZkMKh9kl_MjCgDT5hy5oMeYN10T84wakFmDk0
+
+### 1. Actualizar múltiples roles de un usuario
+PUT {{baseUrl}}/api/users/1/roles
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "roleIds": [1, 2, 3]
+}
+
+### 2. Obtener lista de roles de un usuario específico
+GET {{baseUrl}}/api/users/1/roles
+Authorization: Bearer {{authToken}}
+
+### 3. Obtener total de roles asignados a un usuario específico
+GET {{baseUrl}}/api/users/1/roles/count
+Authorization: Bearer {{authToken}}

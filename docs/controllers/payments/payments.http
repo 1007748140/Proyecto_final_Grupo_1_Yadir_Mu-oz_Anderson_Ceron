@@ -1,0 +1,38 @@
+### docs/controllers/payments/payments.http
+
+@baseUrl = http://localhost:3001
+@authToken = AQUI_EL_TOKEN
+
+### Crear nuevo pago
+POST {{baseUrl}}/api/payments
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "idInvoice": 1,
+    "amount": 500.00,
+    "idPaymentMethod": 1,
+    "status": "pending"
+}
+
+### Obtener todos los pagos
+GET {{baseUrl}}/api/payments
+Authorization: Bearer {{authToken}}
+
+### Obtener pago por ID
+GET {{baseUrl}}/api/payments/1
+Authorization: Bearer {{authToken}}
+
+### Actualizar pago
+PUT {{baseUrl}}/api/payments/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "amount": 750.00,
+    "status": "success"
+}
+
+### Eliminar pago
+DELETE {{baseUrl}}/api/payments/1
+Authorization: Bearer {{authToken}}

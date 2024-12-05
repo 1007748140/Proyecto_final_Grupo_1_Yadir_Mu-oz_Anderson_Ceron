@@ -1,0 +1,5 @@
+# docs/controllers/profile/deleteprofile.http
+@env = dev
+
+DELETE http://localhost:3001/api/users/profile/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMTU4MzEyLCJleHAiOjE3MzMxNjE5MTJ9.6RpMMje-nALrygoR135ePiH1ZTE2K7yKO3lMbf_YI3g
