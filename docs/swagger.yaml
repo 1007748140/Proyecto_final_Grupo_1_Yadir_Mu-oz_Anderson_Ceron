@@ -328,6 +328,227 @@ paths:
           description: Rol creado exitosamente
         '400':
           description: Error en la creación del rol
+  # Endpoints adicionales de roles
+  /api/roles/count:
+    get:
+      summary: Obtener el conteo total de roles
+      responses:
+        '200':
+          description: Conteo de roles obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Número total de roles
+
+  /api/roles/name/{name}:
+    get:
+      summary: Obtener rol por nombre
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          description: Nombre del rol a buscar
+      responses:
+        '200':
+          description: Rol encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '404':
+          description: Rol no encontrado
+
+  # Endpoints de UserRole
+  /api/user-roles:
+    post:
+      summary: Crear nueva asignación de rol a usuario
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - idUser
+                - idRole
+              properties:
+                idUser:
+                  type: integer
+                  description: ID del usuario
+                idRole:
+                  type: integer
+                  description: ID del rol
+      responses:
+        '201':
+          description: Rol asignado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  idUser:
+                    type: integer
+                  idRole:
+                    type: integer
+        '400':
+          description: Error en los datos de entrada
+
+  /api/users/{userId}/roles:
+    get:
+      summary: Obtener todos los roles de un usuario
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+          description: ID del usuario
+      responses:
+        '200':
+          description: Roles del usuario obtenidos exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+        '404':
+          description: Usuario no encontrado
+
+    put:
+      summary: Actualizar roles de un usuario
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+          description: ID del usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - roleIds
+              properties:
+                roleIds:
+                  type: array
+                  items:
+                    type: integer
+                  description: Array de IDs de roles
+      responses:
+        '200':
+          description: Roles actualizados exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  roles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Role'
+        '400':
+          description: Error en los datos de entrada
+        '404':
+          description: Usuario no encontrado
+
+  /api/users/{userId}/roles/count:
+    get:
+      summary: Obtener cantidad de roles asignados a un usuario
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+          description: ID del usuario
+      responses:
+        '200':
+          description: Conteo de roles obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Número de roles asignados al usuario
+        '404':
+          description: Usuario no encontrado
+  /api/roles/{id}:
+    delete:
+      summary: Eliminar un rol por ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID del rol a eliminar
+      responses:
+        '200':
+          description: Rol eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Rol eliminado exitosamente"
+        '400':
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "No se puede eliminar el rol porque está asignado a usuarios"
+        '404':
+          description: Rol no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Rol no encontrado"
+        '401':
+          description: No autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Token inválido o no proporcionado"
 
   # Rutas de facturas
   /api/invoices:
